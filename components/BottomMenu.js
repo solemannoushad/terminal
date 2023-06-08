@@ -1,19 +1,20 @@
 import { StyleSheet, View, Text } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function BottomMeny() {
   return (
     <View style={styles.main}>
         <View>
-          <Text>Home</Text>
+          <Icon name="home" size={35} color={"#ffffff"} />
         </View>
         <View>
-          <Text>Shop</Text>
+          <Icon name="shopping-cart" size={35} color={"#ffffff"} />
         </View>
         <View>
-          <Text>About</Text>
+          <Icon name="question-circle-o" size={35} color={"#ffffff"} />
         </View>
         <View>
-          <Text>Contact</Text>
+          <Icon name="phone" size={35} color={"#ffffff"} />
         </View>
     </View>
   )
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    paddingHorizontal: 40,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     shadowColor: "#000",
