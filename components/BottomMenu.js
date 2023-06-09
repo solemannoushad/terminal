@@ -1,20 +1,28 @@
 import { StyleSheet, View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from '@react-navigation/native';
 
 export default function BottomMeny() {
+
+  const navigation = useNavigation();
+
+  const navigate = (screen)=>{
+    navigation.navigate(screen);
+  }
+
   return (
     <View style={styles.main}>
         <View>
-          <Icon name="home" size={35} color={"#ffffff"} />
+          <Icon name="home" size={35} color={"#0ef0ef"} onPress={()=>navigate('Home')} />
         </View>
         <View>
-          <Icon name="shopping-cart" size={35} color={"#ffffff"} />
+          <Icon name="shopping-cart" size={35} color={"#0ef0ef"} onPress={()=>navigate('Shop')} />
         </View>
         <View>
-          <Icon name="question-circle-o" size={35} color={"#ffffff"} />
+          <Icon name="question-circle-o" size={35} color={"#0ef0ef"} onPress={()=>navigate('About')} />
         </View>
         <View>
-          <Icon name="phone" size={35} color={"#ffffff"} />
+          <Icon name="phone" size={35} color={"#0ef0ef"} onPress={()=>navigate('Contact')} />
         </View>
     </View>
   )
@@ -22,7 +30,7 @@ export default function BottomMeny() {
 
 const styles = StyleSheet.create({
   main: {
-    backgroundColor: 'gray',
+    backgroundColor: '#1f242d',
     flex: 0.1,
     flexDirection: 'row',
     position: 'fixed',

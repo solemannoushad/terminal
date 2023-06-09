@@ -8,4 +8,9 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
       },
+      mainView: {
+        flex: 0.9,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }
 })

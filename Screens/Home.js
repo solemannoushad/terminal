@@ -3,7 +3,8 @@ import { styles } from '../Styles/mainStyles'
 import GetDbData from '../Hooks/GetDbData';
 import { useEffect, useState } from 'react';
 import Splash from './Splash'
-import BottomMenu from '../components/BottomMenu';
+import Layout from './Layout';
+
 
 export default function Home() {
 
@@ -20,20 +21,21 @@ export default function Home() {
   return (
     <>    
       { splash &&  <Splash/>}
-      <View style={styles.container}>
-        <FlatList
-          data={products}
-          keyExtractor={(item) => item.id}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-              <Text>{item.name}</Text>
-            </View>
-          )}
-        />
-        <BottomMenu/>
-      </View>
+      <Layout>
+        <View style={styles.mainView}>
+          <FlatList
+            data={products}
+            keyExtractor={(item) => item.id}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                <Text>{item.name}</Text>
+              </View>
+            )}
+          />
+        </View>
+      </Layout>
     </>
   )
 }
