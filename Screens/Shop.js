@@ -14,7 +14,7 @@ export default function Shop() {
   return (
     <Layout>
       <View style={styles.mainView}>
-        <Text>Shop</Text>
+        <Text style={{textAlign: global.align}}>Shop</Text>
       </View>
     </Layout>
   )

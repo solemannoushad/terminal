@@ -16,9 +16,6 @@ export default function Layout({children}) {
 
   return (
     <View style={styles.container}>
-      <View style={{flex: 0.1, marginTop: 30, width: '100%', justifyContent: 'center', alignItems: 'flex-end', marginRight: 20}}>
-        <Icon name="bars" color={"#1f242d"} size={35} onPress={menuOpen}/>
-      </View>
       <View style={{flex: 0.9}}>
         {children}
       </View>

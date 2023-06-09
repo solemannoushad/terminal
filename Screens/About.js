@@ -13,7 +13,7 @@ export default function About() {
   return (
     <Layout>
       <View style={styles.mainView}>
-        <Text>About</Text>
+        <Text style={{textAlign: global.align}}>About</Text>
       </View>
     </Layout>
   )

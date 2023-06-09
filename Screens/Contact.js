@@ -14,7 +14,7 @@ export default function Contact() {
   return (
     <Layout>
       <View style={styles.mainView}>
-        <Text>Contact</Text>
+        <Text style={{textAlign: global.align}}>Contact</Text>
       </View>
     </Layout>
   )

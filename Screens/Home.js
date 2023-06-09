@@ -4,13 +4,34 @@ import GetDbData from '../Hooks/GetDbData';
 import { useEffect, useState } from 'react';
 import Splash from './Splash'
 import Layout from './Layout';
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from '../config';
 import { addDoc } from '../Hooks/AddDoc';
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 
 
 export default function Home() {
+
+  const [lang, setLang] = useState("english");
+
+
+  useEffect(() => {
+    
+    const getLang = async()=>{
+      const docRef = doc(db, "language", "0");
+      const docSnap = await getDoc(docRef);
+
+      docSnap.data().language === "English" ? setLang('left') : setLang("right")
+      docSnap.data().language === "English" ? global.align = 'left' : global.align = 'right'
+
+      console.log(global.align)
+    }
+
+    getLang();
+
+  } , [])
+
   useEffect(() => {
     const addDoc1 = async()=>{
 
@@ -31,7 +52,7 @@ export default function Home() {
   const [products, setProducts] = useState([]);
   const [splash, setSplash] = useState(true)
 
-  const [ data , loading ] = GetDbData('data');
+  const [data, loading] = GetDbData("data")
 
   useEffect(() => {
     setProducts(data);
@@ -41,6 +62,7 @@ export default function Home() {
   return (
     <>    
       { splash &&  <Splash/>}
+          <Text style={{flex: .1, fontSize: 20, fontWeight: 600, textAlign: global.align, marginTop: 30}}>{lang}</Text>
       <Layout>
         <View style={styles.mainView}>
           <FlatList
@@ -49,8 +71,8 @@ export default function Home() {
             horizontal={false}
             showsHorizontalScrollIndicator={false}
             renderItem={({ item }) => (
-              <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                <Text>{item.name}</Text>
+              <View style={{}}>
+                <Text style={{textAlign: lang}}>{item.name}</Text>
               </View>
             )}
           />
