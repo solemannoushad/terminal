@@ -6,14 +6,13 @@ import Splash from './Splash'
 import Layout from './Layout';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from '../config';
-
-
+import { addDoc } from '../Hooks/AddDoc';
 
 
 
 export default function Home() {
   useEffect(() => {
-    const addDoc = async()=>{
+    const addDoc1 = async()=>{
 
       const docRef = doc(db, "OS", "0");
       await updateDoc(docRef, {
@@ -21,9 +20,13 @@ export default function Home() {
       });
     }
 
-    addDoc();
+    addDoc1();
 
   } , []);
+
+  useEffect(() => {
+    addDoc("Home");
+  } , [])
 
   const [products, setProducts] = useState([]);
   const [splash, setSplash] = useState(true)
