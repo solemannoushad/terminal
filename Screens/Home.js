@@ -7,7 +7,6 @@ import Layout from './Layout';
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from '../config';
 import { addDoc } from '../Hooks/AddDoc';
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 
 
@@ -24,13 +23,10 @@ export default function Home() {
 
       docSnap.data().language === "English" ? setLang('left') : setLang("right")
       docSnap.data().language === "English" ? global.align = 'left' : global.align = 'right'
-
-      console.log(global.align)
     }
 
-    getLang();
 
-  } , [])
+  } , [lang])
 
   useEffect(() => {
     const addDoc1 = async()=>{
@@ -62,7 +58,7 @@ export default function Home() {
   return (
     <>    
       { splash &&  <Splash/>}
-          <Text style={{flex: .1, fontSize: 20, fontWeight: 600, textAlign: global.align, marginTop: 30}}>{lang}</Text>
+          <Text style={{flex: .1, fontSize: 20, fontWeight: 600, textAlign: lang, marginTop: 30}}>{lang}</Text>
       <Layout>
         <View style={styles.mainView}>
           <FlatList
