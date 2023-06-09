@@ -1,11 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './Screens/Home';
 import About from './Screens/About';
 import Contact from './Screens/Contact';
 import Shop from './Screens/Shop';
+import 'react-native-gesture-handler';
+
+
+// import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,5 +25,18 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+// const Drawer = createDrawerNavigator();
+
+// export function App() {
+//   return (
+//     <NavigationContainer>
+//       <Drawer.Navigator initialRouteName="Home">
+//         <Drawer.Screen name="Home" component={Home} />
+//         <Drawer.Screen name="About" component={About} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// }
 
 
